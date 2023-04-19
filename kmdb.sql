@@ -106,7 +106,10 @@
 -- Drop existing tables, so you'll start fresh each time this script is run.
 -- TODO!
 
-
+DROP TABLE IF EXISTS actors;
+DROP TABLE IF EXISTS roles;
+DROP TABLE IF EXISTS movies;
+DROP TABLE IF EXISTS studios; 
 
 -- Create new tables, according to your domain model
 -- TODO!
@@ -115,14 +118,14 @@
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     actor_name TEXT
     movie_id INTEGER,
-    role_id INTEGER,
+    role_id INTEGER
  );
 
  CREATE TABLE roles (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     played TEXT,
     movie_id INTEGER,
-    actor_id INTEGER,
+    actor_id INTEGER
  );
 
  CREATE TABLE movies (
@@ -130,13 +133,13 @@
     title TEXT,
     released TEXT,
     rating TEXT,
-    studio_id INTEGER,
+    studio_id INTEGER
  );
 
  CREATE TABLE studios (
     id INTEGER PRIMARY KEY AUTOINCREMENT, 
     studio_name TEXT,
-    movie_id INTEGER,
+    movie_id INTEGER
  );
 
 -- Insert data into your database that reflects the sample data shown above
