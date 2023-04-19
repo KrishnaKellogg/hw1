@@ -106,10 +106,12 @@
 -- Drop existing tables, so you'll start fresh each time this script is run.
 -- TODO!
 
+
+
 -- Create new tables, according to your domain model
 -- TODO!
 
- CREATE TABLE actor (
+ CREATE TABLE actors (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     actor_name TEXT
     movie_id INTEGER,
@@ -123,15 +125,15 @@
     actor_id INTEGER,
  );
 
- CREATE TABLE movie (
+ CREATE TABLE movies (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     title TEXT,
-    year TEXT,
+    released TEXT,
     rating TEXT,
     studio_id INTEGER,
  );
 
- CREATE TABLE studio (
+ CREATE TABLE studios (
     id INTEGER PRIMARY KEY AUTOINCREMENT, 
     studio_name TEXT,
     movie_id INTEGER,
@@ -149,6 +151,9 @@
 -- The SQL statement for the movies output
 -- TODO!
 
+SELECT title, released, rating, studio_id FROM movies
+INNER JOIN movies ON 
+
 -- Prints a header for the cast output
 .print ""
 .print "Top Cast"
@@ -158,3 +163,7 @@
 
 -- The SQL statement for the cast output
 -- TODO!
+
+SELECT actor_name FROM actors 
+INNER JOIN e ON each
+GROUP BY movies.title
