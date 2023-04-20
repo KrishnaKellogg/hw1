@@ -150,7 +150,7 @@ INSERT INTO studios (studio_name)
 VALUES ("Warner Bros."), ("Warner Bros."), ("Warner Bros.");
 
 INSERT INTO roles (played)
-VALUES ("Brue Wayne"), ("Alfred"), ("Ra\'s Al Ghul"), ("Rachel Dawes"), ("Commissioner Gordon"), ("Joker"), ("Harvey Dent"), ("Bane"), ("John Blake"), ("Selina Kyle");
+VALUES ("Brue Wayne"), ("Alfred"), ("Ra's Al Ghul"), ("Rachel Dawes"), ("Commissioner Gordon"), ("Joker"), ("Harvey Dent"), ("Bane"), ("John Blake"), ("Selina Kyle");
 
 INSERT INTO actors (actor_name)
 VALUES ("Christian Bale"), ("Michael Cane"), ("Liam Neeson"), ("Katie Holmes"), ("Gary Oldman"), ("Heath Ledger"), ("Aaron Eckhart"), ("Maggie Gyllenhaal"), ("Tom Hardy"), ("Joseph Gordon-Levitt"), ("Anne Hathaway");
@@ -172,7 +172,8 @@ VALUES ("PG-13"), ("PG-13"), ("PG-13");
 -- The SQL statement for the movies output
 -- TODO!
 
-SELECT movies.title, movies.released, movies.rating, studios.studio_name FROM movies
+SELECT movies.title, movies.released, movies.rating
+FROM movies
 INNER JOIN studios ON movies.id = studios.movie_id
 ORDER BY movies.released; 
 
