@@ -187,7 +187,7 @@ ORDER BY movies.released;
 -- The SQL statement for the cast output
 -- TODO!
 
---SELECT actors.actor_name FROM actors 
+--SELECT movies.titled, actors.actor_name, roles.played FROM actors 
 --INNER JOIN  ON each
 --GROUP BY movies.title
 
