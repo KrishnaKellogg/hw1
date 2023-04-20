@@ -116,7 +116,7 @@ DROP TABLE IF EXISTS studios;
 
  CREATE TABLE actors (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    actor_name TEXT
+    actor_name TEXT,
     movie_id INTEGER,
     role_id INTEGER
  );
@@ -189,3 +189,4 @@ ORDER BY movies.released;
 --SELECT actor_name FROM actors 
 --INNER JOIN  ON each
 --GROUP BY movies.title
+
