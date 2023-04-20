@@ -150,19 +150,19 @@ INSERT INTO studios (studio_name)
 VALUES ("Warner Bros.");
 
 INSERT INTO roles (played)
-VALUES ("Brue Wayne", "Alfred", "Ra\'s Al Ghul", "Rachel Dawes", "Commissioner Gordon", "Joker", "Harvey Dent", "Bane", "John Blake", "Selina Kyle");
+VALUES ("Brue Wayne"), ("Alfred"), ("Ra\'s Al Ghul"), ("Rachel Dawes"), ("Commissioner Gordon"), ("Joker"), ("Harvey Dent"), ("Bane"), ("John Blake"), ("Selina Kyle");
 
 INSERT INTO actors (actor_name)
-VALUES ("Christian Bale", "Michael Cane", "Liam Neeson", "Katie Holmes", "Gary Oldman", "Heath Ledger", "Aaron Eckhart", "Maggie Gyllenhaal", "Tom Hardy", "Joseph Gordon-Levitt", "Anne Hathaway");
+VALUES ("Christian Bale"), ("Michael Cane"), ("Liam Neeson"), ("Katie Holmes"), ("Gary Oldman"), ("Heath Ledger"), ("Aaron Eckhart"), ("Maggie Gyllenhaal"), ("Tom Hardy"), ("Joseph Gordon-Levitt"), ("Anne Hathaway");
 
 INSERT INTO movies (title)
-VALUES ("Batman Begins", "The Dark Knight", "The Dark Knight Rises");
+VALUES ("Batman Begins"), ("The Dark Knight"), ("The Dark Knight Rises");
 
 INSERT INTO movies (released)
-VALUES ("2005", "2008", "2012");
+VALUES ("2005"), ("2008"), ("2012");
 
 INSERT INTO movies (rating)
-VALUES ("PG-13")
+VALUES ("PG-13");
 
 -- Prints a header for the movies output
 .print "Movies"
@@ -172,8 +172,8 @@ VALUES ("PG-13")
 -- The SQL statement for the movies output
 -- TODO!
 
-SELECT title, released, rating, studio_id FROM movies
-INNER JOIN movies ON 
+SELECT title, released, rating, studios.studio_name FROM movies
+INNER JOIN studios ON studios.studio_name = movies.studio_id;
 
 -- Prints a header for the cast output
 .print ""
@@ -185,6 +185,6 @@ INNER JOIN movies ON
 -- The SQL statement for the cast output
 -- TODO!
 
-SELECT actor_name FROM actors 
-INNER JOIN e ON each
-GROUP BY movies.title
+--SELECT actor_name FROM actors 
+--INNER JOIN  ON each
+--GROUP BY movies.title
