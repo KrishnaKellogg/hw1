@@ -147,7 +147,7 @@ DROP TABLE IF EXISTS studios;
 -- TODO!
 
 INSERT INTO studios (studio_name)
-VALUES ("Warner Bros.");
+VALUES ("Warner Bros."), ("Warner Bros."), ("Warner Bros.");
 
 INSERT INTO roles (played)
 VALUES ("Brue Wayne"), ("Alfred"), ("Ra\'s Al Ghul"), ("Rachel Dawes"), ("Commissioner Gordon"), ("Joker"), ("Harvey Dent"), ("Bane"), ("John Blake"), ("Selina Kyle");
@@ -162,7 +162,7 @@ INSERT INTO movies (released)
 VALUES ("2005"), ("2008"), ("2012");
 
 INSERT INTO movies (rating)
-VALUES ("PG-13");
+VALUES ("PG-13"), ("PG-13"), ("PG-13");
 
 -- Prints a header for the movies output
 .print "Movies"
@@ -172,8 +172,9 @@ VALUES ("PG-13");
 -- The SQL statement for the movies output
 -- TODO!
 
-SELECT title, released, rating, studios.studio_name FROM movies
-INNER JOIN studios ON studios.studio_name = movies.studio_id;
+SELECT movies.title, movies.released, movies.rating, studios.studio_name FROM movies
+INNER JOIN studios ON movies.id = studios.movie_id
+ORDER BY movies.released; 
 
 -- Prints a header for the cast output
 .print ""
