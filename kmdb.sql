@@ -156,13 +156,13 @@ INSERT INTO actors (actor_name)
 VALUES ("Christian Bale"), ("Michael Cane"), ("Liam Neeson"), ("Katie Holmes"), ("Gary Oldman"), ("Heath Ledger"), ("Aaron Eckhart"), ("Maggie Gyllenhaal"), ("Tom Hardy"), ("Joseph Gordon-Levitt"), ("Anne Hathaway");
 
 INSERT INTO movies (title, released, rating)
-VALUES ("Batman Begins"), ("The Dark Knight"), ("The Dark Knight Rises");
+VALUES ("Batman Begins", "2005", "PG-13");
 
-INSERT INTO movies (released)
-VALUES ("2005"), ("2008"), ("2012");
+INSERT INTO movies (title, released, rating)
+VALUES ("The Dark Knight", "2008", "PG-13");
 
-INSERT INTO movies (rating)
-VALUES ("PG-13"), ("PG-13"), ("PG-13");
+INSERT INTO movies (title, released, rating)
+VALUES ("The Dark Knight Rises", "2012", "PG-13");
 
 -- Prints a header for the movies output
 .print "Movies"
