@@ -177,7 +177,7 @@ VALUES ("Christian Bale", "Bruce Wayne"), ("Michael Cane", "Alfred"), ("Liam Nee
 
 INSERT INTO roles (movie, actor)
 VALUES ("Batman Begins", "Christian Bale"), ("Batman Begins", "Michael Cane"), ("Batman Begins", "Liam Neeson"), ("Batman Begins", "Katie Holmes"), ("Batman Begins", "Gary Oldman"),
-("The Dark Knight", "Christian Bale"), ("The Dark Knight", "Heath Leder"), ("The Dark Knight", "Aaron Eckhart"), ("The Dark Knight", "Michael Cane"), ("The Dark Knight", "Maggie Gyllenhaal"),
+("The Dark Knight", "Christian Bale"), ("The Dark Knight", "Heath Ledger"), ("The Dark Knight", "Aaron Eckhart"), ("The Dark Knight", "Michael Cane"), ("The Dark Knight", "Maggie Gyllenhaal"),
 ("The Dark Knight Rises", "Christian Bale"), ("The Dark Knight Rises", "Gary Oldman"), ("The Dark Knight Rises", "Tom Hardy"), ("The Dark Knight Rises", "Joseph Gordon-Levitt"), 
 ("The Dark Knight Rises", "Anne Hathaway");
 
