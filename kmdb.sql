@@ -133,7 +133,9 @@ DROP TABLE IF EXISTS studios;
     title TEXT,
     released TEXT,
     rating TEXT,
-    studio_id INTEGER
+    studio_id INTEGER,
+    actor_id INTEGER,
+    role_id INTEGER
  );
 
  CREATE TABLE studios (
@@ -187,7 +189,10 @@ ORDER BY movies.released;
 -- The SQL statement for the cast output
 -- TODO!
 
---SELECT movies.titled, actors.actor_name, roles.played FROM actors 
---INNER JOIN  ON each
---GROUP BY movies.title
+SELECT movies.title, actors.actor_name, roles.played 
+FROM movies 
+   INNER JOIN actors ON actors.id = movies.actor_id
+   INNER JOIN roles ON roles.id = movies.role_id
+GROUP BY movies.title
+ORDER BY movies.title;
 
