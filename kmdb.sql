@@ -127,7 +127,8 @@ CREATE TABLE movies (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     actor_name TEXT,
     played TEXT,
-    movie_id INTEGER
+    FOREIGN KEY movie_id INTEGER
+    REFERENCES 
  );
 
  CREATE TABLE studios (
@@ -139,7 +140,8 @@ CREATE TABLE movies (
 --CREATE TABLE roles ( 
    --id INTEGER PRIMARY KEY AUTOINCREMENT, 
    --movie_id INTEGER,
-   --actor_id INTEGER);
+   --actor_id INTEGER 
+   --);
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
@@ -180,6 +182,8 @@ SELECT movies.title, movies.released, movies.rating, studios.studio_name
 FROM movies
 INNER JOIN studios ON movies.id = studios.id
 ORDER BY movies.released; 
+-- For some reason, joining on movies.id = studios.movie_id as the foreign key is not working, but that would be the right answer I believe. 
+
 
 -- Prints a header for the cast output
 .print ""
