@@ -117,16 +117,11 @@ DROP TABLE IF EXISTS studios;
  CREATE TABLE actors (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     actor_name TEXT,
+    played TEXT,
     movie_id INTEGER,
     role_id INTEGER
  );
 
- CREATE TABLE roles (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    played TEXT,
-    movie_id INTEGER,
-    actor_id INTEGER
- );
 
  CREATE TABLE movies (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -148,15 +143,6 @@ DROP TABLE IF EXISTS studios;
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
 
-INSERT INTO studios (studio_name)
-VALUES ("Warner Bros."), ("Warner Bros."), ("Warner Bros.");
-
-INSERT INTO roles (played)
-VALUES ("Bruce Wayne"), ("Alfred"), ("Ra's Al Ghul"), ("Rachel Dawes"), ("Commissioner Gordon"), ("Joker"), ("Harvey Dent"), ("Bane"), ("John Blake"), ("Selina Kyle");
-
-INSERT INTO actors (actor_name)
-VALUES ("Christian Bale"), ("Michael Cane"), ("Liam Neeson"), ("Katie Holmes"), ("Gary Oldman"), ("Heath Ledger"), ("Aaron Eckhart"), ("Maggie Gyllenhaal"), ("Tom Hardy"), ("Joseph Gordon-Levitt"), ("Anne Hathaway");
-
 INSERT INTO movies (title, released, rating)
 VALUES ("Batman Begins", "2005", "PG-13");
 
@@ -165,6 +151,15 @@ VALUES ("The Dark Knight", "2008", "PG-13");
 
 INSERT INTO movies (title, released, rating)
 VALUES ("The Dark Knight Rises", "2012", "PG-13");
+
+INSERT INTO studios (studio_name)
+VALUES ("Warner Bros."), ("Warner Bros."), ("Warner Bros.");
+
+INSERT INTO actors (actor_name, played)
+VALUES ("Christian Bale", "Bruce Wayne"), ("Michael Cane", "Alfred"), ("Liam Neeson", "Ra's Al Ghul"), ("Katie Holmes", "Rachel Dawes"),
+("Gary Oldman", "Commissioner Gordon"), ("Heath Ledger", "Joker"), ("Aaron Eckhart","Harvey Dent"), ("Tom Hardy","Bane"), 
+("Joseph Gordon-Levitt","John Blake"), ("Anne Hathaway","Selina Kyle");
+
 
 -- Prints a header for the movies output
 .print "Movies"
@@ -189,10 +184,8 @@ ORDER BY movies.released;
 -- The SQL statement for the cast output
 -- TODO!
 
-SELECT movies.title, actors.actor_name, roles.played 
-FROM movies 
-   INNER JOIN actors ON actors.id = movies.actor_id
-   INNER JOIN roles ON roles.id = movies.role_id
+SELECT movies.title, actors.actor_name, actors.played 
+FROM movies INNER JOIN actors ON actors.id = movies.actor_id
 GROUP BY movies.title
 ORDER BY movies.title;
 
