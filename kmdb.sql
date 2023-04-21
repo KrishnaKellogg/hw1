@@ -136,11 +136,10 @@ CREATE TABLE movies (
     movie_id INTEGER
  );
 
-CREATE TABLE roles ( 
-   id INTEGER PRIMARY KEY AUTOINCREMENT, 
-   actor TEXT,
-   movie TEXT
-)
+--CREATE TABLE roles ( 
+   --id INTEGER PRIMARY KEY AUTOINCREMENT, 
+   --movie_id INTEGER,
+   --actor_id INTEGER);
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
@@ -163,11 +162,11 @@ VALUES ("Christian Bale", "Bruce Wayne"), ("Michael Cane", "Alfred"), ("Liam Nee
 ("Gary Oldman", "Commissioner Gordon"), ("Heath Ledger", "Joker"), ("Aaron Eckhart", "Harvey Dent"), ("Tom Hardy", "Bane"), 
 ("Joseph Gordon-Levitt", "John Blake"), ("Anne Hathaway", "Selina Kyle");
 
-INSERT INTO roles (movie, actor)
-VALUES ("Batman Begins", "Christian Bale"), ("Batman Begins", "Michael Cane"), ("Batman Begins", "Liam Neeson"), ("Batman Begins", "Katie Holmes"), ("Batman Begins", "Gary Oldman"),
-("The Dark Knight", "Christian Bale"), ("The Dark Knight", "Heath Leder"), ("The Dark Knight", "Aaron Eckhart"), ("The Dark Knight", "Michael Cane"), ("The Dark Knight", "Maggie Gyllenhaal"),
-("The Dark Knight Rises", "Christian Bale"), ("The Dark Knight Rises", "Gary Oldman"), ("The Dark Knight Rises", "Tom Hardy"), ("The Dark Knight Rises", "Joseph Gordon-Levitt"), 
-("The Dark Knight Rises", "Anne Hathaway");
+--INSERT INTO roles (movie, actor)
+--VALUES ("Batman Begins", "Christian Bale"), ("Batman Begins", "Michael Cane"), ("Batman Begins", "Liam Neeson"), ("Batman Begins", "Katie Holmes"), ("Batman Begins", "Gary Oldman"),
+--("The Dark Knight", "Christian Bale"), ("The Dark Knight", "Heath Leder"), ("The Dark Knight", "Aaron Eckhart"), ("The Dark Knight", "Michael Cane"), ("The Dark Knight", "Maggie Gyllenhaal"),
+--("The Dark Knight Rises", "Christian Bale"), ("The Dark Knight Rises", "Gary Oldman"), ("The Dark Knight Rises", "Tom Hardy"), ("The Dark Knight Rises", "Joseph Gordon-Levitt"), 
+--("The Dark Knight Rises", "Anne Hathaway");
 
 -- Prints a header for the movies output
 .print "Movies"
@@ -192,9 +191,9 @@ ORDER BY movies.released;
 -- The SQL statement for the cast output
 -- TODO!
 
-SELECT movies.title, roles.actor, actors.played 
-FROM movies 
-   INNER JOIN roles ON movies.title = roles.movie
-   INNER JOIN actors ON roles.actor = actors.actor_name
-ORDER BY movies.title;
+--SELECT movies.title, roles.actor, actors.played 
+--FROM movies 
+   --INNER JOIN roles ON movies.title = roles.movie
+   --INNER JOIN actors ON roles.actor = actors.actor_name
+--ORDER BY movies.title;
 
