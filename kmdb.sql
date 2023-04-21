@@ -167,8 +167,8 @@ VALUES ("The Dark Knight", "2008", "PG-13");
 INSERT INTO movies (title, released, rating)
 VALUES ("The Dark Knight Rises", "2012", "PG-13");
 
-INSERT INTO studios (studio_name)
-VALUES ("Warner Bros."), ("Warner Bros."), ("Warner Bros.");
+INSERT INTO studios (studio_name, movie_id)
+VALUES ("Warner Bros.", 1), ("Warner Bros.", 2), ("Warner Bros.", 3);
 
 INSERT INTO actors (actor_name, played)
 VALUES ("Christian Bale", "Bruce Wayne"), ("Michael Cane", "Alfred"), ("Liam Neeson", "Ra's Al Ghul"), ("Katie Holmes", "Rachel Dawes"),
@@ -191,7 +191,7 @@ VALUES ("Batman Begins", "Christian Bale"), ("Batman Begins", "Michael Cane"), (
 
 SELECT movies.title, movies.released, movies.rating, studios.studio_name
 FROM movies
-INNER JOIN studios ON movies.id = studios.id
+INNER JOIN studios ON movies.id = studios.movie_id
 ORDER BY movies.released; 
 -- For some reason, joining on movies.id = studios.movie_id as the foreign key is not working, but that would be the right answer I believe. 
 
@@ -211,4 +211,4 @@ FROM movies
    INNER JOIN roles ON movies.title = roles.movie
    INNER JOIN actors ON roles.actor = actors.actor_name
 ORDER BY movies.title;
--- not sure if the join is proper here - can't get the foreign key of _id to work properly 
+-- not sure if the join is proper here - can't get the foreign key of _ids to work properly 
