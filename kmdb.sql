@@ -211,4 +211,4 @@ FROM movies
    INNER JOIN roles ON movies.title = roles.movie
    INNER JOIN actors ON roles.actor = actors.actor_name
 ORDER BY movies.title;
--- also unable to create a proper join here, 
+-- not sure if the join is proper here - can't get the foreign key of _id to work properly 
