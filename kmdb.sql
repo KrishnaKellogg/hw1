@@ -114,34 +114,43 @@ DROP TABLE IF EXISTS studios;
 -- Create new tables, according to your domain model
 -- TODO!
 
+
 CREATE TABLE movies (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     title TEXT,
     released TEXT,
     rating TEXT,
     studio_id INTEGER,
-    actor_id INTEGER
+    actor_id INTEGER, 
+    roles_id INTEGER
  );
+-- many to many relationship with roles and actors
 
  CREATE TABLE actors (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     actor_name TEXT,
     played TEXT,
-    FOREIGN KEY movie_id INTEGER
-    REFERENCES 
+    movie_id INTEGER
  );
+-- many to many relationship with movies 
+-- 
 
  CREATE TABLE studios (
     id INTEGER PRIMARY KEY AUTOINCREMENT, 
     studio_name TEXT,
     movie_id INTEGER
  );
+-- one to many relationship with movies
 
 --CREATE TABLE roles ( 
    --id INTEGER PRIMARY KEY AUTOINCREMENT, 
    --movie_id INTEGER,
    --actor_id INTEGER 
    --);
+
+-- many to many relationship with movies 
+-- one to one relationship with actors? Minus Maggie G
+
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
@@ -200,4 +209,4 @@ ORDER BY movies.released;
    --INNER JOIN roles ON movies.title = roles.movie
    --INNER JOIN actors ON roles.actor = actors.actor_name
 --ORDER BY movies.title;
-
+-- also unable to create a proper join here, 
