@@ -172,14 +172,14 @@ VALUES ("Warner Bros.", 1), ("Warner Bros.", 2), ("Warner Bros.", 3);
 
 INSERT INTO actors (actor_name, played)
 VALUES ("Christian Bale", "Bruce Wayne"), ("Michael Cane", "Alfred"), ("Liam Neeson", "Ra's Al Ghul"), ("Katie Holmes", "Rachel Dawes"),
-("Gary Oldman", "Commissioner Gordon"), ("Heath Ledger", "Joker"), ("Aaron Eckhart", "Harvey Dent"), ("Tom Hardy", "Bane"), 
+("Gary Oldman", "Commissioner Gordon"), ("Heath Ledger", "Joker"), ("Aaron Eckhart", "Harvey Dent"), ("Tom Hardy", "Bane"), ("Maggie Gyllenhaal", "Rachel Dawes"), 
 ("Joseph Gordon-Levitt", "John Blake"), ("Anne Hathaway", "Selina Kyle");
 
-INSERT INTO roles (movie, actor)
-VALUES ("Batman Begins", "Christian Bale"), ("Batman Begins", "Michael Cane"), ("Batman Begins", "Liam Neeson"), ("Batman Begins", "Katie Holmes"), ("Batman Begins", "Gary Oldman"),
-("The Dark Knight", "Christian Bale"), ("The Dark Knight", "Heath Ledger"), ("The Dark Knight", "Aaron Eckhart"), ("The Dark Knight", "Michael Cane"), ("The Dark Knight", "Maggie Gyllenhaal"),
-("The Dark Knight Rises", "Christian Bale"), ("The Dark Knight Rises", "Gary Oldman"), ("The Dark Knight Rises", "Tom Hardy"), ("The Dark Knight Rises", "Joseph Gordon-Levitt"), 
-("The Dark Knight Rises", "Anne Hathaway");
+INSERT INTO roles (movie_id, movie, actor)
+VALUES (1, "Batman Begins", "Christian Bale"), (1, "Batman Begins", "Michael Cane"), (1, "Batman Begins", "Liam Neeson"), (1, "Batman Begins", "Katie Holmes"), (1, "Batman Begins", "Gary Oldman"),
+(2, "The Dark Knight", "Christian Bale"), (2, "The Dark Knight", "Heath Ledger"), (2, "The Dark Knight", "Aaron Eckhart"), (2, "The Dark Knight", "Michael Cane"), (2, "The Dark Knight", "Maggie Gyllenhaal"),
+(3, "The Dark Knight Rises", "Christian Bale"), (3, "The Dark Knight Rises", "Gary Oldman"), (3, "The Dark Knight Rises", "Tom Hardy"), (3, "The Dark Knight Rises", "Joseph Gordon-Levitt"), 
+(3, "The Dark Knight Rises", "Anne Hathaway");
 
 -- Prints a header for the movies output
 .print "Movies"
@@ -193,7 +193,6 @@ SELECT movies.title, movies.released, movies.rating, studios.studio_name
 FROM movies
 INNER JOIN studios ON movies.id = studios.movie_id
 ORDER BY movies.released; 
--- For some reason, joining on movies.id = studios.movie_id as the foreign key is not working, but that would be the right answer I believe. 
 
 
 -- Prints a header for the cast output
@@ -208,7 +207,6 @@ ORDER BY movies.released;
 
 SELECT movies.title, roles.actor, actors.played 
 FROM movies 
-   INNER JOIN roles ON movies.title = roles.movie
+   INNER JOIN roles ON movies.id = roles.movie_id
    INNER JOIN actors ON roles.actor = actors.actor_name
 ORDER BY movies.title;
--- not sure if the join is proper here - can't get the foreign key of _ids to work properly 
